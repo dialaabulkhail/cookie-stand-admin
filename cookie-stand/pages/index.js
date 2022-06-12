@@ -11,31 +11,47 @@ function Home() {
   const [counter, setCounter] = useState(0);
   const [sales, setSales] = useState([]);
 
+
   function handleSubmit(event) {
     event.preventDefault();
     setCounter(counter + 1);
 
-    const randomSale =
-      hourly_sales[Math.floor(Math.random() * hourly_sales.length)];
-
+    const randomSale = hourly_sales[Math.floor(Math.random() * hourly_sales.length)];
+    
     const data = {
       location: event.target.location.value,
-      six: randomSale,
-
+      sixam: randomSale,
+      sevenam: randomSale,
+      eightam: randomSale,
+      nine: randomSale,
+      ten: randomSale,
+      eleven: randomSale,
+      twelve: randomSale,
+      one: randomSale,
+      two: randomSale,
+      three: randomSale,
+      four: randomSale,
+      five: randomSale,
+      sixpm: randomSale,
+      sevenpm: randomSale,
       // minCustomers: event.target.min.value,
       // maxCustomers: event.target.max.value,
       // avgCookies: event.target.avg.value
     };
-    setSales({ ...sales, data });
+    setSales([...sales, data]);
+    
+    
 
   }
+  console.log(sales)
+
   return (
     <>
       <Header />
       <Main handleSubmit={handleSubmit} />
 
       <div>
-        {sales.length < 1 ? <CreateForm /> : <ReportTable sales={sales} />}
+        {sales.length < 1 ? <CreateForm /> : <ReportTable  sales={sales} />}
       </div>
 
       <Footer counter={counter} />

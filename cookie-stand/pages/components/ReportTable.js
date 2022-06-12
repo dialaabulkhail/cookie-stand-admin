@@ -1,11 +1,11 @@
 import hourly_sales from "../../data";
 
-function ReportTable(sales) {
+
+function ReportTable({sales}) {
   return (
     <div>
       <div>
         <table className="mx-auto my-4 text-sm text-gray-600">
-          {/* <thread> */}
           <th className="p-1 bg-blue-300">Location</th>
           <th name="six" className="p-1 bg-gray-200">
             6am
@@ -25,17 +25,83 @@ function ReportTable(sales) {
           <th className="p-1 bg-blue-300">7pm</th>
           <th className="p-1 text-blue-400 bg-white ">Totals</th>
           <tbody>
-            {hourly_sales.map((sales) => {
-              return (
-                <tr>
-                  <td>{hourly_sales.location}</td>
-                </tr>
-              );
-            })}
+            
+            
+              {
+              sales.map((data) => {
+                return(
+                  <>
+                  <tr>
+                    <td>
+                      {data.location}
+                    </td>
+                  
 
-            {/* <td>
-                            hello
-                        </td> */}
+                  
+                    <td>
+                      {data.sixam}
+                    </td>
+
+                    <td>
+                      {data.sevenam}
+                    </td>
+
+                    <td>
+                      {data.eightam}
+                    </td>
+
+                    <td>
+                      {data.nine}
+                    </td>
+
+                    <td>
+                      {data.ten}
+                    </td>
+
+                    <td>
+                      {data.eleven}
+                    </td>
+
+                    <td>
+                      {data.twelve}
+                    </td>
+
+                    <td>
+                      {data.one}
+                    </td>
+
+                    <td>
+                      {data.two}
+                    </td>
+
+                    <td>
+                      {data.three}
+                    </td>
+
+                    <td>
+                      {data.four}
+                    </td>
+
+                    <td>
+                      {data.five}
+                    </td>
+
+                    <td>
+                      {data.sixpm}
+                    </td>
+
+                    <td>
+                      {data.sevenpm}
+                    </td>
+                    </tr>
+
+                  
+                  </>
+                )
+              })
+              }
+            
+            
           </tbody>
         </table>
       </div>
@@ -45,14 +111,3 @@ function ReportTable(sales) {
 
 export default ReportTable;
 
-// {
-//     hourly_sales.map(proprs=>{
-//         return (
-//             <tr>
-//                 <td>
-//                     {props.location}
-//                 </td>
-//             </tr>
-//         )
-//     })
-// }
