@@ -20,23 +20,7 @@ function Home() {
     
     const data = {
       location: event.target.location.value,
-      sixam: randomSale,
-      sevenam: randomSale,
-      eightam: randomSale,
-      nine: randomSale,
-      ten: randomSale,
-      eleven: randomSale,
-      twelve: randomSale,
-      one: randomSale,
-      two: randomSale,
-      three: randomSale,
-      four: randomSale,
-      five: randomSale,
-      sixpm: randomSale,
-      sevenpm: randomSale,
-      // minCustomers: event.target.min.value,
-      // maxCustomers: event.target.max.value,
-      // avgCookies: event.target.avg.value
+      
     };
     setSales([...sales, data]);
     

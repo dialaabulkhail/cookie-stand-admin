@@ -1,7 +1,6 @@
 import hourly_sales from "../../data";
 
-
-function ReportTable({sales}) {
+function ReportTable({ sales }) {
   return (
     <div>
       <div>
@@ -25,83 +24,24 @@ function ReportTable({sales}) {
           <th className="p-1 bg-blue-300">7pm</th>
           <th className="p-1 text-blue-400 bg-white ">Totals</th>
           <tbody>
-            
-            
-              {
-              sales.map((data) => {
-                return(
-                  <>
+            {sales.map((data) => {
+              return (
+                <>
                   <tr>
-                    <td>
-                      {data.location}
-                    </td>
+                    <td>{data.location}</td>
+                    
+                    {hourly_sales.map((data=>{
+                      return (
+                        <>
+                        <td>{data}</td>
+                        </>
+                      )
+                    }))}
                   
-
-                  
-                    <td>
-                      {data.sixam}
-                    </td>
-
-                    <td>
-                      {data.sevenam}
-                    </td>
-
-                    <td>
-                      {data.eightam}
-                    </td>
-
-                    <td>
-                      {data.nine}
-                    </td>
-
-                    <td>
-                      {data.ten}
-                    </td>
-
-                    <td>
-                      {data.eleven}
-                    </td>
-
-                    <td>
-                      {data.twelve}
-                    </td>
-
-                    <td>
-                      {data.one}
-                    </td>
-
-                    <td>
-                      {data.two}
-                    </td>
-
-                    <td>
-                      {data.three}
-                    </td>
-
-                    <td>
-                      {data.four}
-                    </td>
-
-                    <td>
-                      {data.five}
-                    </td>
-
-                    <td>
-                      {data.sixpm}
-                    </td>
-
-                    <td>
-                      {data.sevenpm}
-                    </td>
-                    </tr>
-
-                  
-                  </>
-                )
-              })
-              }
-            
-            
+                  </tr>
+                </>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -110,4 +50,3 @@ function ReportTable({sales}) {
 }
 
 export default ReportTable;
-
