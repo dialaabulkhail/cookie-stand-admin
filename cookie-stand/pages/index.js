@@ -1,46 +1,21 @@
-import Header from "./components/Haeder";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Home from "./components/CookieStandAdmin";
 import { useState } from "react";
-import ReportTable from "./components/ReportTable";
-import CreateForm from "./components/CreateForm";
-import hourly_sales from "../data";
+import Login from "./components/Login";
 
-function Home() {
-
-  const [counter, setCounter] = useState(0);
-  const [sales, setSales] = useState([]);
-
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setCounter(counter + 1);
-
-    const randomSale = hourly_sales[Math.floor(Math.random() * hourly_sales.length)];
-    
-    const data = {
-      location: event.target.location.value,
-      
-    };
-    setSales([...sales, data]);
-    
-    
-
+function index() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  function logInHandler() {
+    setLoggedIn(true);
   }
-  console.log(sales)
-
   return (
-    <>
-      <Header />
-      <Main handleSubmit={handleSubmit} />
-
-      <div>
-        {sales.length < 1 ? <CreateForm /> : <ReportTable  sales={sales} />}
-      </div>
-
-      <Footer counter={counter} />
-    </>
+    <div>
+      {loggedIn ? (
+        <Home setLoggedIn={setLoggedIn} />
+      ) : (
+        <Login logInHandler={logInHandler} />
+      )}
+    </div>
   );
 }
 
-export default Home;
+export default index;
