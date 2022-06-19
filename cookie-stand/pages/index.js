@@ -1,34 +1,21 @@
-import Header from "./components/Haeder";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
-import { useState } from 'react';
+import Home from "./components/CookieStandAdmin";
+import { useState } from "react";
+import Login from "./components/Login";
 
-function Home(){
-  const [result, setResult] = useState({})
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const data = {
-      location: event.target.location.value,
-      minCustomers: event.target.min.value,
-      maxCustomers: event.target.max.value,
-      avgCookies: event.target.avg.value
-    }
-    setResult({...result,data})
+function index() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  function logInHandler() {
+    setLoggedIn(true);
   }
-  return(
-    <>
-    <Header/>
-    <Main handleSubmit={handleSubmit}/>
-    <div className="text-center text-gray-500">
-    <ul>{JSON.stringify(result)}</ul>
+  return (
+    <div>
+      {loggedIn ? (
+        <Home setLoggedIn={setLoggedIn} />
+      ) : (
+        <Login logInHandler={logInHandler} />
+      )}
     </div>
-    
-    <Footer/>
-    </>
-  )
+  );
 }
 
-
-
-export default Home
+export default index;
